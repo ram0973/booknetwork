@@ -24,8 +24,6 @@ repositories {
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api
-    //implementation("jakarta.persistence:jakarta.persistence-api:3.2.0")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-mail")
     implementation("org.springframework.boot:spring-boot-starter-security")

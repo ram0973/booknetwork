@@ -45,7 +45,7 @@ public class BeansConfig {
 
     @Bean
     public AuditorAware<Integer> auditorAware() {
-        return null; //new ApplicationAuditAware();
+        return new ApplicationAuditAware();
     }
 
     @Bean
