@@ -1,6 +1,9 @@
 package com.ram0973.booknetwork.config;
 
+import com.ram0973.booknetwork.role.Role;
+import com.ram0973.booknetwork.role.RoleRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
@@ -24,6 +27,15 @@ import java.util.Collections;
 public class BeansConfig {
 
     private final UserDetailsService userDetailsService;
+
+    @Bean
+    public CommandLineRunner runner(RoleRepository roleRepository) {
+        return args -> {
+            if (roleRepository.findByName("USER").isEmpty()) {
+                roleRepository.save(Role.builder().name("USER").build());
+            }
+        };
+    }
 
     @Bean
     public AuthenticationProvider authenticationProvider() {
@@ -69,7 +81,5 @@ public class BeansConfig {
         ));
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
-
     }
-
 }

@@ -1,5 +1,6 @@
 package com.ram0973.booknetwork.user;
 
+import com.ram0973.booknetwork.book.Book;
 import com.ram0973.booknetwork.role.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -51,6 +52,9 @@ public class User implements UserDetails, Principal {
 
     @ManyToMany(fetch = EAGER)
     private List<Role> roles;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Book> books;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)

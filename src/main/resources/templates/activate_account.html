@@ -54,7 +54,7 @@
         <span th:text="${activation_code}"></span></div>
     <div class="activation-link">
         <!--/*@thymesVar id="confirmationUrl" type="String"*/-->
-        <a th:href="${confirmationUrl}" target="_blank">Activate your account</a>
+        <a th:href="${confirmationUrl} + '?token=' + ${activation_code}" target="_blank">Activate your account</a>
     </div>
 </div>
 </body>

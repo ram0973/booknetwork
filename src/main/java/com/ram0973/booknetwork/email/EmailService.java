@@ -1,5 +1,6 @@
 package com.ram0973.booknetwork.email;
 
+import io.jsonwebtoken.Jwts;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,7 @@ import static org.springframework.mail.javamail.MimeMessageHelper.MULTIPART_MODE
 @Log4j2
 @RequiredArgsConstructor
 public class EmailService {
-    private final JavaMailSender mailSender = new JavaMailSenderImpl();
+    private final JavaMailSender mailSender; // no beans here is bullshit error
     private final SpringTemplateEngine templateEngine;
 
     @Value("${application.mailing.admin-email}")

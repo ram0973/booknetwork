@@ -1,0 +1,42 @@
+### Register admin
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "email": "gendalf@white.com",
+  "password": "password",
+  "firstname": "Gendalf",
+  "lastname": "White"
+}
+
+### Register user
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "email": "bilbo@baggins.com",
+  "password": "password",
+  "firstname": "Bilbo",
+  "lastname": "Baggins"
+}
+
+### Authenticate admin
+POST http://localhost:8080/api/v1/auth/authenticate
+Content-Type: application/json
+
+{
+  "email": "gendalf@white.com",
+  "password": "password"
+}
+
+### Authenticate user
+POST http://localhost:8080/api/v1/auth/authenticate
+Content-Type: application/json
+
+{
+  "email": "bilbo@baggins.com",
+  "password": "password"
+}
+
+### Activate account
+GET http://localhost:8080/api/v1/auth/activate-account?token=507971

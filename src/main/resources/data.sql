@@ -1,0 +1,2 @@
+-- insert into role (id, created_date, last_modified_date, name)
+-- values (1, '2024-07-26T09:42:34.646892900', null, 'USER');
