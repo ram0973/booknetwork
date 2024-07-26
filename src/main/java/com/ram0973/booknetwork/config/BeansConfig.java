@@ -19,6 +19,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -32,7 +34,7 @@ public class BeansConfig {
     public CommandLineRunner runner(RoleRepository roleRepository) {
         return args -> {
             if (roleRepository.findByName("USER").isEmpty()) {
-                roleRepository.save(Role.builder().name("USER").build());
+                roleRepository.save(Role.builder().name("USER").createdBy(1).createdDate(LocalDateTime.now()).build());
             }
         };
     }
